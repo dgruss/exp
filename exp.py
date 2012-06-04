@@ -66,12 +66,15 @@ def I(indent, psi, delta, omega, n, exp):
         print "%s  Nebenrechnung:" % (" " * indent)
         print "%s    I(δ, ω%d, %s)" % (" " * indent, n, formatExp(psi, delta, omega, exp[1:3]))
         print "%s    = %s?(%s)" % (" " * indent, exp[1], ", ".join(["I(δ, ω%d, %s)" % (n, p[0]) for p in exp[2]]))
+        print "%s  Nebenrechnung:" % (" " * indent)
+        print "%s    I(δ, ω%d, %s)" % (" " * indent, n, formatExp(psi, delta, omega, exp[1:3]))
+        print "%s    = %s?(%s)" % (" " * indent, exp[1], ", ".join(["I(δ, ω%d, %s)" % (n, p[0]) for p in exp[2]]))
         
         params = []        
         for param in exp[2]:
             print "%s      I(δ, ω%d, %s)" % (" " * indent, n, formatExp(psi, delta, omega, param))
             params.append(I(indent + 6, psi, delta, omega, n, param))
-        
+            
         print "%s    = %s?(%s)" % (" " * indent, exp[1], ",".join(map(str, params)))
         if psi.predicates[exp[1]](*params):
             print "%s    = T" % (" " * indent) 
