@@ -16,13 +16,12 @@ def parse(program):
     result = []
     for line in program:
         try:
-                tokens = exp.parseString(line)
-                result.append(tokens[0])
+            tokens = exp.parseString(line)
+            result.append(tokens[0])
         except ParseException, err:
-                print " "*err.loc + "^\n" + err.msg
-                print err
-    call = result.pop()
-    return (call, parseDelta(result))
+            print " "*err.loc + "^\n" + err.msg
+            print err
+    return (result.pop(), parseDelta(result))
 
 
 exp = Forward()
