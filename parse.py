@@ -1,26 +1,25 @@
 from pyparsing import ParseException, Forward, ZeroOrMore, Regex, Group, Suppress
 
 def parseDelta(program):
-  delta = dict()
-  for line in program:
-    name = line[0]
-    params = line[1]
-    implementation = line[2]
-    delta[name] = (params, implementation)
-  return delta
-
+    delta = dict()
+    for line in program:
+        name = line[0]
+        params = line[1]
+        implementation = line[2]
+        delta[name] = (params, implementation)
+    return delta
 
 def parse(program):
-  result = []
-  for line in program:
-    try:
-        tokens = exp.parseString(line)
-        result.append(tokens[0])
-    except ParseException, err:
-        print " "*err.loc + "^\n" + err.msg
-        print err
-  call = result.pop()
-  return (call, parseDelta(result))
+    result = []
+    for line in program:
+        try:
+                tokens = exp.parseString(line)
+                result.append(tokens[0])
+        except ParseException, err:
+                print " "*err.loc + "^\n" + err.msg
+                print err
+    call = result.pop()
+    return (call, parseDelta(result))
 
 
 exp = Forward()
