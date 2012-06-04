@@ -7,27 +7,14 @@ class Integer:
         self.functions = {"add": self.add, "sub": self.sub}
         self.predicates = {"eq": self.eq, "lt": self.lt}
 
-    def getConstant(self, token):
-        return self.constants[token]
+    def add(self, param1, param2):
+        return param1 + param2
 
-    def processFunction(self, token, params):
-        return self.functions[token](params)
+    def sub(self, param1, param2):
+        return param1 - param2
 
-    def processPredicate(self, token, params):
-        return self.predicates[token](params)
+    def eq(self, param1, param2):
+        return param1 == param2
 
-    def add(self, params):
-        assert(len(params) == 2)
-        return params[0] + params[1]
-
-    def sub(self, params):
-        assert(len(params) == 2)
-        return params[0] - params[1]
-
-    def eq(self, params):
-        assert(len(params) == 2)
-        return params[0] == params[1]
-
-    def lt(self, params):
-        assert(len(params) == 2)
-        return params[0] < params[1]
+    def lt(self, param1, param2):
+        return param1 < param2
