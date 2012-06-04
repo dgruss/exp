@@ -89,10 +89,10 @@ def I(indent, psi, delta, omega, n, exp):
         new_omega = dict()
         paramNames = delta[exp[0]][0]
         paramList = exp[1]
-        for i in range(0, len(paramNames)):
-            print "%s    omega%u(%s)" % (" " * indent, n + 1, paramNames[i])
-            print "%s    = I(delta, omega%u, %s)" % (" " * indent, n, formatExp(psi, delta, omega, paramList[i]))
-            new_omega[paramNames[i]] = I(indent + 4, psi, delta, omega, n, paramList[i])
+        for paramName, param in zip(paramNames, paramList):
+            print "%s    omega%u(%s)" % (" " * indent, n + 1, paramName)
+            print "%s    = I(delta, omega%u, %s)" % (" " * indent, n, formatExp(psi, delta, omega, param))
+            new_omega[paramName] = I(indent + 4, psi, delta, omega, n, param)
         # call I with implementation of the function and new omega environment
         implementation = delta[exp[0]][1]
         print "%s= I(delta,omega%u,%s)" % (" " * indent, n + 1, formatExp(psi, delta, omega, implementation))
