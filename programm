@@ -1,0 +1,2 @@
+E(x) = if eq?(x,null) then null else add(x,E(sub(x,eins)))
+E(zwei)

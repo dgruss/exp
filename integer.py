@@ -1,41 +1,20 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 class Integer:
-  def __init__(self):
-    self = self
+    def __init__(self):
+        self.constants = {"null": 0, "eins": 1, "zwei": 2, "zehn": 10}
+        self.functions = {"add": self.add, "sub": self.sub}
+        self.predicates = {"eq": self.eq, "lt": self.lt}
 
-  def hasConstant(self, token):
-    return self.constants.has_key(token)
+    def add(self, param1, param2):
+        return param1 + param2
 
-  def getConstant(self, token):
-    return self.constants[token]
+    def sub(self, param1, param2):
+        return param1 - param2
 
-  def hasFunction(self, token):
-    return self.functions.has_key(token)
+    def eq(self, param1, param2):
+        return param1 == param2
 
-  def processFunction(self, token, params):
-    return self.functions[token](self, params)
-
-  def hasPredicate(self, token):
-    return self.predicates.has_key(token)
-
-  def processPredicate(self, token, params):
-    return self.predicates[token](self, params)
-
-  def add(self, params):
-    assert(len(params) == 2)
-    return params[0] + params[1]
-
-  def sub(self, params):
-    assert(len(params) == 2)
-    return params[0] - params[1]
-
-  def eq(self, params):
-    assert(len(params) == 2)
-    return params[0] == params[1]
-
-  def lt(self, params):
-    assert(len(params) == 2)
-    return params[0] < params[1]
-
-  constants = {"null": 0, "eins": 1, "zwei": 2, "zehn": 10}
-  functions = {"add": add, "sub": sub}
-  predicates = {"eq": eq, "lt": lt}
+    def lt(self, param1, param2):
+        return param1 < param2
