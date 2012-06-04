@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from pyparsing import ParseException, Forward, ZeroOrMore, Regex, Group, Suppress
 
 def parseDelta(program):

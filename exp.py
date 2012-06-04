@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import sys
 def printf(fmt, *varargs):
         sys.stdout.write(fmt % varargs)
