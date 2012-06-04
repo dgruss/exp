@@ -71,7 +71,7 @@ def I(indent, psi, delta, omega, n, exp):
         for param in exp[2]:
             print "%s      I(δ, ω%d, %s)" % (" " * indent, n, formatExp(psi, delta, omega, param))
             params.append(I(indent + 6, psi, delta, omega, n, param))
-        
+            
         print "%s    = %s?(%s)" % (" " * indent, exp[1], ",".join(map(str, params)))
         if psi.predicates[exp[1]](*params):
             print "%s    = T" % (" " * indent) 
